@@ -78,7 +78,9 @@ body {
 .grid-col-4 {
   grid-template-columns: repeat(4, 1fr);
 }
-
+.grid-col-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
 /* 為什麼會加這一行是因為在grid中的grid會讓
 底部變長，所以先讓所有grid加入，再將最後一個
 grid刪除，就可以用not 的語法。 */
@@ -618,6 +620,9 @@ blockquote {
   line-height: 1.8;
   font-size: 1.8rem;
 }
+.section-cta {
+  padding: 4.8rem 0 12.8rem;
+}
 .cta {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -637,6 +642,7 @@ blockquote {
   align-items: center;
   column-gap: 3.2rem;
   row-gap: 2.4rem;
+  color: rgb(97, 57, 57);
 }
 
 .cta-form input,
@@ -645,8 +651,12 @@ blockquote {
   padding: 1.2rem;
   border-radius: 5rem;
   border: 0;
+  color: inherit;
+  font-family: inherit;
 }
-
+.cta-form input::placeholder {
+  color: #aaa;
+}
 .cta-text-box {
   padding: 4.8rem 6.4rem 6.4rem 6.4rem;
 }
@@ -687,8 +697,85 @@ blockquote {
   font-size: 2rem;
   border-radius: 10rem;
   color: #53488f;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .cta-signUP:hover {
   color: #f7f7f7;
+}
+
+.cta-form *:focus {
+  /* outline: none;
+  outline: 1px dotted; */
+  outline: none;
+  box-shadow: 0 0 1.2rem rgba(236, 76, 215, 0.945);
+}
+.section-footer {
+  margin: 12.8rem 0;
+}
+
+.grid-footer {
+  column-gap: 6.4rem;
+}
+.footer-logo {
+  height: 2.2rem;
+  margin-bottom: 3rem;
+}
+.fotter-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.footer-icons {
+  display: flex;
+  justify-content: start;
+  gap: 2rem;
+  margin-bottom: 8rem;
+}
+.copyright-text {
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+.nav-col {
+  align-self: flex-start;
+  font-size: 1.6rem;
+}
+.footer-header {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 0 0 4rem 0;
+}
+
+.footer-address {
+  display: inline-block;
+  margin-bottom: 2.4rem;
+}
+.address {
+  line-height: 1.6;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  margin: 0 0 1.2rem 0;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: #333;
+  transition: all 0.4s;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.footer-link:active,
+.footer-link:hover {
+  cursor: pointer;
+  color: rgb(221, 114, 212);
+}
+.footer-click-links a:link,
+.footer-click-links a:visited {
+  text-decoration: none;
+  color: #555;
 }
