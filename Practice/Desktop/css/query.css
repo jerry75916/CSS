@@ -1,0 +1,237 @@
+/* rem and em do not depend on html font-size in media queries,instead,
+1rem=1em=16px */
+
+/* 84em=1350px/16 */
+
+@media (max-width: 84em) {
+  .hero {
+    max-width: 120rem;
+  }
+  .heading-primary {
+    font-size: 4.4rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 75em) {
+  html {
+    /* 9/16=0.56 降一個pixcel */
+    font-size: 56.25%;
+  }
+  .heading-secondary {
+    font-size: 3.6rem;
+  }
+  .heading-tertiary {
+    font-size: 2.4rem;
+  }
+  .grid {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+  .header {
+    padding: 0 3.2rem;
+  }
+  .main-nav-list {
+    gap: 3.2rem;
+  }
+  .hero {
+    gap: 4.8rem;
+  }
+  .testimonials-container {
+    gap: 9.6rem 4.8rem;
+  }
+}
+@media (max-width: 59em) {
+  html {
+    /* 8/16=0.50 降一個pixcel */
+    font-size: 50%;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 8rem;
+    gap: 6.8rem;
+  }
+  .hero-img {
+    width: 60%;
+  }
+  .hero-img-box,
+  .hero-text-box {
+    text-align: center;
+  }
+  .delivered-meals {
+    justify-content: center;
+    margin-top: 3.2rem;
+  }
+  .logos img {
+    height: 2.4rem;
+  }
+  .step-number {
+    font-size: 7.4rem;
+  }
+  .meal-content {
+    padding: 2.4rem 2.4rem 3.6rem 2.4rem;
+  }
+  .section-testimonials {
+    grid-template-columns: 1fr;
+  }
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .cta {
+    grid-template-columns: 3fr 2fr; /*60% 40% */
+  }
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+  .cta-signUP {
+    margin-top: 1.2rem;
+  }
+  .btn-nav-mobile {
+    display: block;
+  }
+  .nav-open .main-nav {
+    /*這段是為了使用js 來控制顯示nav list */
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    /*將nav lis 從右側移回原本的位置，產生動畫*/
+    transform: translateX(0);
+  }
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    /* open時出現xx */
+    display: block;
+  }
+
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    /* open時關閉 */
+    display: none;
+  }
+
+  /*主要用來控制nav list 的位置*/
+  .main-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.959); /*mask*/
+    /*這裡使用flex 是因為100%*100%為了讓整個ul置中，所以使用flexbox整個置中 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    transition: all 0.5s ease-in;
+    /*100%讓list移至原畫面右側，為了製造一個右向左移的nav list */
+    transform: translateX(
+      100%
+    ); /*body 記得要overflow-x:hidden 不然default右側會多一塊*/
+
+    /* display: none; nav會整個消失無法用js控，所以要用透明度*/
+    opacity: 0;
+    pointer-events: none; /*不讓使用者使用鍵盤tab控制nav bar */
+
+    visibility: hidden; /*為了讓元素真的無法使用，讓opactiy無法運作*/
+  }
+
+  .main-nav-list {
+    /*原本flex為讓每個nav side by side，現在讓它垂直 */
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+  .Main-nav-link:link,
+  .Main-nav-link:visited {
+    font-size: 3.2rem;
+  }
+  /*700px*/
+  @media (max-width: 44em) {
+    .grid-col-3,
+    .grid-col-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .diets {
+      grid-column: 1/-1;
+      justify-self: center;
+    }
+    .heading-secondary {
+      margin-bottom: 4.8rem;
+    }
+    .pricing-plan {
+      width: 100%;
+    }
+    .grid-footer {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .nav-col {
+      grid-row: 1;
+      grid-column: span 2;
+      margin-bottom: 3.2rem;
+    }
+    .address-col,
+    .logo-col {
+      grid-column: span 3;
+    }
+  }
+}
+/* 550px */
+@media (max-width: 34.3em) {
+  .grid {
+    row-gap: 4.8rem;
+  }
+  .grid-col-2,
+  .grid-col-3,
+  .grid-col-4,
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    padding: 0 0.32rem;
+  }
+  .section-hero {
+    background-color: #fbd1df;
+    padding: 2.4rem 0 4.8rem 0;
+  }
+  .btn:link,
+  .btn:visited {
+    padding: 2.4rem 1.6rem;
+    font-size: 2rem;
+  }
+  .hero-img {
+    width: 80%;
+  }
+  .logos img {
+    height: 1.2rem;
+  }
+  .step-img-box:nth-child(2) {
+    grid-row: 1;
+  }
+  .step-img-box:nth-child(6) {
+    grid-row: 5;
+  }
+  .heading-tertiary {
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+  .step-img-box {
+    transform: translateY(2.4rem);
+  }
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
+  }
+  .cta {
+    grid-template-columns: 1fr;
+  }
+  .cta-img-box {
+    grid-row: 1;
+    height: 35rem;
+  }
+  .cta-text-box {
+    padding: 3.2rem;
+  }
+}
+
+/* 05 -FONT SIZE(px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 */

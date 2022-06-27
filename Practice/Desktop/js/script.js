@@ -1,15 +1,15 @@
 // Set current year
-// const yearEl = document.querySelector(".year");
-// const currentYear = new Date().getFullYear()
-// yearEl.textContent = currentYear
+const yearEl = document.querySelector(".year");
+const currentYear = new Date().getFullYear();
+yearEl.textContent = currentYear;
 
 // Make mobile navigation work
-// const btnNavEl = document.querySelector(".btn-mobile-nav");
+const btnNavEl = document.querySelector(".btn-nav-mobile");
 const headerEl = document.querySelector(".header");
 
-// btnNavEl.addEventListener("click", () => {
-//   headerEl.classList.toggle("nav-open");
-// });
+btnNavEl.addEventListener("click", () => {
+  headerEl.classList.toggle("nav-open");
+});
 
 // Smooth scrolling animation
 const allLinks = document.querySelectorAll("a:link");
@@ -32,8 +32,8 @@ allLinks.forEach((link) => {
     }
 
     // Close mobile navigation
-    if (link.classList.contains("main-nav-link")) {
-      headerEl.classList.toggle("nav-open");
+    if (link.classList.contains("Main-nav-link")) {
+      headerEl.classList.toggle("nav-open"); //不管如何都toggle，因為open 只會出現在media query 時有作用
     }
   });
 });
@@ -43,7 +43,7 @@ const sectionHeroEl = document.querySelector(".section-hero");
 const obs = new IntersectionObserver(
   function (entries) {
     const ent = entries[0];
-    console.log(ent);
+    // console.log(ent);
     if (ent.isIntersecting === false) {
       document.body.classList.add("sticky");
     }
@@ -73,8 +73,6 @@ function checkFlexGap() {
   document.body.appendChild(flex);
   var isSupported = flex.scrollHeight === 1;
   flex.parentNode.removeChild(flex);
-  console.log(isSupported);
-
   if (!isSupported) document.body.classList.add("no-flexbox-gap");
 }
 checkFlexGap();
